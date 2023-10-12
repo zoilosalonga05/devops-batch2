@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push zsalonga/batch2'
+        sh 'docker push zsalonga/batch2:latest'
       }
     }
     stage('Deploy') {
