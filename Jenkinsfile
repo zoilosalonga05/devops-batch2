@@ -19,7 +19,7 @@ pipeline {
     }
     stage('Push') {
       steps {
-        sh 'docker push zsalonga/batch2:latest'
+        sh 'docker push zsalonga/batch2:mynginx:v.0.2'
       }
     }
     stage('Deploy') {
