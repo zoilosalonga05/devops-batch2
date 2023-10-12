@@ -1,5 +1,5 @@
 pipeline {
-  agent any 
+  agent any
   options {
     buildDiscarder(logRotator(numToKeepStr: '5'))
   }
@@ -12,7 +12,7 @@ pipeline {
         sh 'docker build -t zsalonga/batch2:mynginx .'
       }
     }
-    stage(' Login') {
+    stage('Login') {
       steps {
         sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'
       }
@@ -25,7 +25,7 @@ pipeline {
     stage('Deploy') {
             steps {
               script {
-                   sh "docker run -d -p 8081:80 mynginx  "
+                   sh "docker run -d -p 8083:80 zsalonga/batch2:mynginx"
                 }
               }
             }
